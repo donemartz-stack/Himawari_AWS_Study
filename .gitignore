@@ -1,0 +1,58 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# =========================
+# Satellite / Geospatial data (Himawari, NetCDF, HDF)
+# =========================
+*.nc
+*.hdf
+*.h5
+*.grib
+*.tif
+*.tiff
+*.geotiff
+*.bin
+
+# =========================
+# Large data & outputs
+# =========================
+data/
+outputs/
+results/
+
+# =========================
+# Logs & temp files
+# =========================
+*.log
+*.tmp
+*.bak
+*.swp
+
+# =========================
+# OS junk
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Credentials / secrets
+# =========================
+*.key
+*.pem
+*.token
+credentials.json
+aws_credentials*
