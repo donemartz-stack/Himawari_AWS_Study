@@ -26,6 +26,8 @@ venv/
 *.tiff
 *.geotiff
 *.bin
+*.bz2
+*.dat
 
 # =========================
 # Large data & outputs
