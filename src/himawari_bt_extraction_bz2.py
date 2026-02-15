@@ -10,7 +10,7 @@ from satpy import Scene
 # ================= CONFIGURATION =================
 # 1. PATHS
 # Directory where your .DAT.BZ2 files are located
-DATA_DIR = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/satellite files' 
+DATA_DIR = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/himawari_data_flat'
 # Directory to store temporary unzipped files (created/deleted automatically)
 TEMP_DIR = os.path.join(DATA_DIR, "temp_processing")
 # Output CSV filename
