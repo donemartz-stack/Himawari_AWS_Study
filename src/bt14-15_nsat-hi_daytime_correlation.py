@@ -6,9 +6,9 @@ import os
 from sklearn.metrics import r2_score, mean_squared_error
 
 # --- 1. SETTINGS & DATA LOADING ---
-file_path = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/data/intermediate/himawari_ahi_data_Mar_Jun_2025_12PM_to_4PM.xlsx'
+file_path = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/data/intermediate/himawari_aws_10AM_to_4PM.xlsx'
 output_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/outputs/figures'
-output_filename = 'himawari_vs_aws_plots.png'
+output_filename = 'himawari_aws_daytime_correlation.png'
 
 # Ensure the folder exists
 if not os.path.exists(output_folder):
@@ -19,8 +19,8 @@ df = pd.read_excel(file_path)
 
 # Define the pairs to compare (Himawari vs AWS)
 pairs = [
-    ('band_14_bt', 'nsat'), ('band_15_bt', 'nsat'), ('bt_diff', 'nsat'),
-    ('band_14_bt', 'hi'),   ('band_15_bt', 'hi'),   ('bt_diff', 'hi')
+    ('Band 14 Brightness Temperature', 'Near Surface Air Temperature'), ('Band 15 Brightness Temperature', 'Near Surface Air Temperature'), ('Brightness Temperature Difference', 'Near Surface Air Temperature'),
+    ('Band 14 Brightness Temperature', 'Heat Index'),   ('Band 15 Brightness Temperature', 'Heat Index'),   ('Brightness Temperature Difference', 'Heat Index')
 ]
 
 # --- 2. PLOTTING SETUP ---
