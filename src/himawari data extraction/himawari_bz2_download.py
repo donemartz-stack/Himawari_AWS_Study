@@ -72,8 +72,8 @@ def download_himawari_data_flat(start_date, end_date, output_dir='himawari_data_
 
 if __name__ == "__main__":
     # Define period: March 1, 2025 to May 31, 2025
-    start_dt = datetime(2025, 4, 12, 17, 40)
-    end_dt = datetime(2025, 4, 15, 23, 50)
+    start_dt = datetime(2025, 4, 16, 00, 00)
+    end_dt = datetime(2025, 4, 30, 23, 50)
     
     # WARNING: Saving ~260,000 files into a single folder may slow down 
     # file explorer windows on some operating systems.

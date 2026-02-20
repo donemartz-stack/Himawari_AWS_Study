@@ -6,9 +6,9 @@ import os
 from sklearn.metrics import r2_score, mean_squared_error
 
 # --- 1. SETTINGS & DATA LOADING ---
-file_path = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/data/intermediate/himawari_aws_10AM_to_4PM.xlsx'
-output_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/outputs/figures'
-output_filename = 'himawari_aws_daytime_correlation.png'
+file_path = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/data/intermediate/himawari_aws_data-clean_10AM-4PM_0-min-delay_b14-temp-x.xlsx'
+output_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/outputs/figures correlation'
+output_filename = 'bt14-15_nsat-hi_correlation_10AM-4PM_0-min-delay_b14-temp-20.png'
 
 # Ensure the folder exists
 if not os.path.exists(output_folder):
@@ -32,10 +32,20 @@ for i, (x_col, y_col) in enumerate(pairs):
     temp_df = df[[x_col, y_col]].dropna()
     x, y = temp_df[x_col], temp_df[y_col]
     
+    
     # --- 3. COMPUTE METRICS ---
+    # 1. Calculate the Pearson correlation
     r = np.corrcoef(x, y)[0, 1]
-    r2 = r2_score(y, x) 
-    rmse = np.sqrt(mean_squared_error(y, x))
+    
+    # 2. Mathematically calculate the line of best fit (y = mx + b)
+    m, b = np.polyfit(x, y, 1)
+    
+    # 3. Generate the predicted y values based on that line
+    y_pred = m * x + b
+    
+    # 4. Calculate R2 and RMSE using the actual y vs the predicted y
+    r2 = r2_score(y, y_pred) 
+    rmse = np.sqrt(mean_squared_error(y, y_pred))
     
     # --- 4. GENERATE SCATTER PLOTS ---
     sns.scatterplot(x=x, y=y, ax=axes[i], alpha=0.5, edgecolor=None)
