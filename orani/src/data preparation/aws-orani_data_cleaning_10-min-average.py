@@ -2,8 +2,8 @@ import pandas as pd
 import os
 
 # --- Configuration ---
-input_file = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/data/raw/aws_pag-asa-orani_data.xlsx' 
-save_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/data/processed' 
+input_file = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/orani/data/raw/aws-orani_data_clean.xlsx' 
+save_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/orani/data/processed' 
 
 def process_weather_data(input_path, output_folder): 
     # 1. Load the Excel file
@@ -34,7 +34,7 @@ def process_weather_data(input_path, output_folder):
     df_resampled.reset_index(inplace=True)
 
     # 5. Save the output
-    output_filename = 'aws_pag-asa-orani_averaged_data_10min.xlsx'
+    output_filename = 'aws-orani_averaged_data_10-min.xlsx'
     
     # Create the output folder if it doesn't exist
     if not os.path.exists(output_folder):

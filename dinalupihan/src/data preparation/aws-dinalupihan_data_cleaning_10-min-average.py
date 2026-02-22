@@ -2,8 +2,8 @@ import pandas as pd
 import os
 
 # --- Configuration ---
-input_file = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/data/raw/aws_pag-asa-orani_data.xlsx' 
-save_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/data/processed' 
+input_file = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/dinalupihan/data/raw/aws_dinalupihan_data_full.xlsx' 
+save_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/dinalupihan/data/raw'
 
 def process_weather_data(input_path, output_folder): 
     # 1. Load the Excel file
@@ -27,14 +27,14 @@ def process_weather_data(input_path, output_folder):
     # 3. Set the timestamp as the index
     df.set_index(time_col, inplace=True)
 
-    # 4. Resample to 30-minute intervals and calculate the average
-    df_resampled = df.resample('30min').mean()
+    # 4. Resample to 10-minute intervals and calculate the average
+    df_resampled = df.resample('10min').mean()
 
     # Reset index to bring the timestamp back as a column
     df_resampled.reset_index(inplace=True)
 
     # 5. Save the output
-    output_filename = 'aws_pag-asa-orani_averaged_data_30min.xlsx'
+    output_filename = 'aws_dinalupihan_averaged_data_10-min.xlsx'
     
     # Create the output folder if it doesn't exist
     if not os.path.exists(output_folder):
