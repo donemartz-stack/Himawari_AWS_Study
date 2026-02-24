@@ -6,9 +6,9 @@ import os
 from sklearn.metrics import r2_score, mean_squared_error
 
 # --- 1. SETTINGS & DATA LOADING ---
-file_path = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/dinalupihan/data/intermediate/himawari_aws-dinalupihan_data-clean_10AM-4PM.xlsx'
-output_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/dinalupihan/outputs/figures correlation'
-output_filename = 'bt14-15_nsat-hi_dinalupihan_correlation_10AM-4PM.png'
+file_path = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/orani/data/intermediate/himawari_aws-orani_data-clean_daytime.xlsx'
+output_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/orani/outputs/figures correlation'
+output_filename = 'bt14-15_nsat-hi-dinalupihan_daytime_correlation.png'
 df = pd.read_excel(file_path)
 
 # Himawari vs AWS Pairs

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import os
 
 # --- Configuration ---
-input_file = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/dinalupihan/data/raw/aws-dinalupihan_averaged_data_10-min.xlsx' 
+input_file = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/dinalupihan/data/processed/aws_dinalupihan_averaged_data_10min.xlsx' 
 save_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/dinalupihan/outputs/time series plots' 
 
 def plot_weather_data(input_file, output_folder):
@@ -19,7 +19,7 @@ def plot_weather_data(input_file, output_folder):
 
     # 2. Prepare the data
     # Ensure the timestamp column is in datetime format
-    time_col = 'Timestamp PH Time'
+    time_col = 'Time Stamp PH Time'
     if time_col not in df.columns:
         print(f"Error: Column '{time_col}' not found.")
         return

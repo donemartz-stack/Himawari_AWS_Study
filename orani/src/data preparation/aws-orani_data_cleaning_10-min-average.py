@@ -3,7 +3,7 @@ import os
 
 # --- Configuration ---
 input_file = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/orani/data/raw/aws-orani_data_clean.xlsx' 
-save_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/orani/data/processed' 
+save_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/orani/data/raw' 
 
 def process_weather_data(input_path, output_folder): 
     # 1. Load the Excel file

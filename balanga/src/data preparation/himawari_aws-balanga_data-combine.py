@@ -2,11 +2,11 @@ import pandas as pd
 import os
 
 # --- Configuration ---
-input_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/dinalupihan/data/raw'
-output_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/dinalupihan/data/processed'
-file1_name = 'himawari-dinalupihan_data_full.xlsx'
-file2_name = 'aws-dinalupihan_averaged_data_10-min.xlsx'
-output_filename = 'himawari_aws-dinalupihan_data_combined.xlsx'
+input_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/balanga/data/raw'
+output_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/balanga/data/processed'
+file1_name = 'himawari-balanga_data_full.xlsx'
+file2_name = 'aws-balanga_averaged_data_10-min.xlsx'
+output_filename = 'himawari_aws-balanga_data_combined.xlsx'
 
 # --- Load Data ---
 print("Loading files...")

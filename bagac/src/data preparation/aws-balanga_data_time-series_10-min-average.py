@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import os
 
 # --- Configuration ---
-input_file = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/dinalupihan/data/raw/aws-dinalupihan_averaged_data_10-min.xlsx' 
-save_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/dinalupihan/outputs/time series plots' 
+input_file = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/bagac/data/raw/aws-bagac_averaged_data_10-min.xlsx' 
+save_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/bagac/outputs/time series plots' 
 
 def plot_weather_data(input_file, output_folder):
 
@@ -56,7 +56,7 @@ def plot_weather_data(input_file, output_folder):
     plt.tight_layout()
 
     # 4. Save the plot
-    output_filename = 'aws-dinalupihan_data_clean_10-min_time-series.png'
+    output_filename = 'aws-bagac_data_clean_10-min_time-series.png'
     
     # Create output folder if it doesn't exist
     if not os.path.exists(output_folder):

@@ -2,8 +2,8 @@ import pandas as pd
 import os
 
 # --- Configuration ---
-input_file = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/dinalupihan/data/raw/aws-dinalupihan_data_full.xlsx' 
-save_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/dinalupihan/data/raw'
+input_file = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/bagac/data/raw/aws-bagac_data_full.xlsx' 
+save_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/bagac/data/raw'
 
 def process_weather_data(input_path, output_folder): 
     # 1. Load the Excel file
@@ -16,7 +16,7 @@ def process_weather_data(input_path, output_folder):
         return
 
     # 2. Convert the timestamp column to datetime objects
-    time_col = 'Time Stamp PH Time'
+    time_col = 'Timestamp PH Time'
     
     if time_col not in df.columns:
         print(f"Error: Column '{time_col}' not found. Please check the column name in your Excel file.")
@@ -34,7 +34,7 @@ def process_weather_data(input_path, output_folder):
     df_resampled.reset_index(inplace=True)
 
     # 5. Save the output
-    output_filename = 'aws-dinalupihan_averaged_data_10-min.xlsx'
+    output_filename = 'aws-bagac_averaged_data_10-min.xlsx'
     
     # Create the output folder if it doesn't exist
     if not os.path.exists(output_folder):

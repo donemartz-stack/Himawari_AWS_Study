@@ -4,10 +4,10 @@ from datetime import time
 
 # --- Configuration ---
 # Folder paths and filenames
-input_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/dinalupihan/data/processed'
-output_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/dinalupihan/data/intermediate'
-input_filename = 'himawari_aws-dinalupihan_data_combined_30-min-delay.xlsx'
-output_filename = 'himawari_aws-dinalupihan_data-clean_10AM-4PM.xlsx'
+input_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/balanga/data/processed'
+output_folder = '/Users/danwilliammartinez/Desktop/Himawari_AWS_Study/balanga/data/intermediate'
+input_filename = 'himawari_aws-balanga_data_combined_30-min-delay.xlsx'
+output_filename = 'himawari_aws-balanga_data-clean_daytime.xlsx'
 
 # --- Load Data ---
 input_path = os.path.join(input_folder, input_filename)
@@ -25,20 +25,23 @@ else:
 # --- Apply Filters ---
 # 1. Extract 10 AM to 4 PM data
 start_time = time(10, 0, 0) # 10:00:00
-end_time = time(16, 0, 0)   # 16:00:00
+end_time = time(14, 0, 0)   # 16:00:00
 time_mask = (df['Timestamp'].dt.time >= start_time) & (df['Timestamp'].dt.time <= end_time)
 
 # 2. Exclude Band 14 Brightness Temperature lower than 18
-band14_mask = df['Band 14 Brightness Temperature'] >= 0
+band14_mask = df['Band 14 Brightness Temperature'] >= 18
 
 # 3. Exclude Temperature Difference above 3.0
 temp_diff_mask = (df['Brightness Temperature Difference'] <= 3.0) & (df['Brightness Temperature Difference'] >= 0.0)
 
 # 4. Exclude Humidity below 40% and above 85%
-humidity_mask = (df['Humidity'] >= 20) & (df['Humidity'] <= 95)
+humidity_mask = (df['Humidity'] >= 20) & (df['Humidity'] <= 85)
+
+# 4. Exclude NSAT above 50
+nsat_mask = df['Near Surface Air Temperature'] <= 50
 
 # Combine all filters using the '&' (AND) operator
-final_mask = time_mask & band14_mask & temp_diff_mask & humidity_mask
+final_mask = time_mask & band14_mask & temp_diff_mask & humidity_mask & nsat_mask
 filtered_df = df[final_mask]
 
 # --- Save Output ---
